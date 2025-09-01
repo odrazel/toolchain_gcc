@@ -1,0 +1,17 @@
+load(":defs.bzl", "_odrazel_toolchain_gcc_rule")
+
+toolchain_type(
+	name="odrazel_toolchain_gcc_type",
+	visibility=["//visibility:public"]
+)
+
+_odrazel_toolchain_gcc_rule(
+	name="impl"
+)
+
+toolchain(
+	name="odrazel_toolchain_gcc",
+	toolchain_type = ":odrazel_toolchain_gcc_type",
+	toolchain = ":impl",
+	visibility = ["//visibility:public"]
+)
